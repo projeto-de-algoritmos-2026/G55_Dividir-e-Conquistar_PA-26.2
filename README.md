@@ -81,8 +81,8 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 
 ### Funcionalidades da aplicação
 
-- [ ] Download de catálogos do USGS por região, período e magnitude mínima
-- [ ] Catálogos de exemplo versionados no repositório para uso offline
+- [x] Download de catálogos do USGS por região, período e magnitude mínima
+- [x] Catálogos de exemplo versionados no repositório para uso offline
 - [ ] Importação de catálogo próprio em CSV (formato USGS), com validação por linha e coluna
 - [ ] Filtros por período, magnitude mínima e profundidade máxima
 - [ ] Projeção azimutal equidistante por região, com distâncias em quilômetros
@@ -94,7 +94,7 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 - [ ] Painel comparativo entre força bruta, O(n log² n) e O(n log n), com tempo e número de comparações
 - [ ] Gráfico de tempo de execução por tamanho de entrada
 - [ ] Verificador contra força bruta em instâncias aleatórias
-- [ ] Gerador de instâncias sintéticas para teste de desempenho
+- [x] Gerador de instâncias sintéticas para teste de desempenho
 
 ---
 
