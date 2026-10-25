@@ -7,11 +7,8 @@ from app.models.evento import Evento
 from app.models.resultado import ParMaisProximo
 
 
-def forca_bruta(pontos: Sequence[Evento]) -> ParMaisProximo:
-    """Compara todos os n(n − 1)/2 pares no plano projetado. Θ(n²)."""
-    if len(pontos) < 2:
-        raise ValueError("São necessários pelo menos 2 eventos")
-
+def par_forca_bruta(pontos: Sequence[Evento]) -> tuple[float, Evento, Evento, int]:
+    """Núcleo da força bruta: (distância, a, b, comparações). Também é o caso base do Closest Pair."""
     menor = math.inf
     melhor = (pontos[0], pontos[1])
     comparacoes = 0
@@ -23,6 +20,13 @@ def forca_bruta(pontos: Sequence[Evento]) -> ParMaisProximo:
             if distancia < menor:
                 menor = distancia
                 melhor = (pontos[i], pontos[j])
+    return menor, melhor[0], melhor[1], comparacoes
 
-    a, b = melhor
-    return ParMaisProximo(a, b, menor, distancia_geodesica(a, b), comparacoes)
+
+def forca_bruta(pontos: Sequence[Evento]) -> ParMaisProximo:
+    """Compara todos os n(n − 1)/2 pares no plano projetado. Θ(n²)."""
+    if len(pontos) < 2:
+        raise ValueError("São necessários pelo menos 2 eventos")
+
+    distancia, a, b, comparacoes = par_forca_bruta(pontos)
+    return ParMaisProximo(a, b, distancia, distancia_geodesica(a, b), comparacoes)
