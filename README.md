@@ -53,11 +53,11 @@ A saída é um mapa interativo com os epicentros da região, o par mais próximo
 
 | # | Algoritmo | Estratégia | Complexidade | Papel no projeto | Status |
 |:-:|---|---|:-:|---|:-:|
-| 1 | **Mergesort** | Divisão e conquista | O(n log n) | Ordenação inicial por x e base do merge por y | Pendente |
-| 2 | **Força bruta (plano)** | Comparação de todos os pares | Θ(n²) | Verificador e linha de base do benchmark | Pendente |
+| 1 | **Mergesort** | Divisão e conquista | O(n log n) | Ordenação inicial por x e base do merge por y | Concluído |
+| 2 | **Força bruta (plano)** | Comparação de todos os pares | Θ(n²) | Verificador e linha de base do benchmark | Concluído |
 | 3 | **Closest-Pair** | Divisão e conquista, reordenando a faixa por y a cada chamada | O(n log² n) | Versão intermediária para comparação | Pendente |
 | 4 | **Sort_and_Closest-Pair** | Divisão e conquista, cada chamada devolve os pontos ordenados por y | O(n log n) | Algoritmo principal | Pendente |
-| 5 | **Força bruta geodésica** | Comparação de todos os pares com Haversine | Θ(n²) | Validação do efeito da projeção | Pendente |
+| 5 | **Força bruta geodésica** | Comparação de todos os pares com Haversine | Θ(n²) | Validação do efeito da projeção | Concluído |
 
 #### 1. Mergesort
 
@@ -85,7 +85,7 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 - [x] Catálogos de exemplo versionados no repositório para uso offline
 - [ ] Importação de catálogo próprio em CSV (formato USGS), com validação por linha e coluna
 - [ ] Filtros por período, magnitude mínima e profundidade máxima
-- [ ] Projeção azimutal equidistante por região, com distâncias em quilômetros
+- [x] Projeção azimutal equidistante por região, com distâncias em quilômetros
 - [ ] Tratamento de empates em x e de epicentros coincidentes
 - [ ] Mapa interativo com todos os epicentros e o par mais próximo destacado
 - [ ] Painel do par com magnitude, profundidade, data, local e distância
