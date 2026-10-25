@@ -55,8 +55,8 @@ A saída é um mapa interativo com os epicentros da região, o par mais próximo
 |:-:|---|---|:-:|---|:-:|
 | 1 | **Mergesort** | Divisão e conquista | O(n log n) | Ordenação inicial por x e base do merge por y | Concluído |
 | 2 | **Força bruta (plano)** | Comparação de todos os pares | Θ(n²) | Verificador e linha de base do benchmark | Concluído |
-| 3 | **Closest-Pair** | Divisão e conquista, reordenando a faixa por y a cada chamada | O(n log² n) | Versão intermediária para comparação | Pendente |
-| 4 | **Sort_and_Closest-Pair** | Divisão e conquista, cada chamada devolve os pontos ordenados por y | O(n log n) | Algoritmo principal | Pendente |
+| 3 | **Closest-Pair** | Divisão e conquista, reordenando a faixa por y a cada chamada | O(n log² n) | Versão intermediária para comparação | Concluído |
+| 4 | **Sort_and_Closest-Pair** | Divisão e conquista, cada chamada devolve os pontos ordenados por y | O(n log n) | Algoritmo principal | Concluído |
 | 5 | **Força bruta geodésica** | Comparação de todos os pares com Haversine | Θ(n²) | Validação do efeito da projeção | Concluído |
 
 #### 1. Mergesort
