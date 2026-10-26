@@ -1,6 +1,6 @@
 from collections.abc import Mapping
 from dataclasses import dataclass
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 @dataclass(frozen=True, slots=True)
@@ -20,9 +20,13 @@ class Evento:
     @classmethod
     def de_linha(cls, linha: Mapping[str, str]) -> "Evento":
         """Converte uma linha do catálogo reduzido (colunas do formato USGS)."""
+        data = datetime.fromisoformat(linha["time"])
+        if data.tzinfo is None:
+            # Catálogos importados sem fuso: o USGS publica em UTC
+            data = data.replace(tzinfo=timezone.utc)
         return cls(
             id=linha["id"],
-            data=datetime.fromisoformat(linha["time"]),
+            data=data,
             latitude=float(linha["latitude"]),
             longitude=float(linha["longitude"]),
             profundidade=float(linha["depth"]),
