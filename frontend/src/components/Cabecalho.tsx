@@ -1,7 +1,9 @@
 import { NavLink } from 'react-router'
 
-// As abas das próximas telas entram nesta lista
-const ITENS = [{ para: '/', rotulo: 'Mapa' }]
+const ITENS = [
+  { para: '/', rotulo: 'Mapa' },
+  { para: '/passo-a-passo', rotulo: 'Passo a Passo' },
+]
 
 /** Traço de sismograma usado como marca: calmo, um abalo, calmo de novo. */
 function Sismograma() {

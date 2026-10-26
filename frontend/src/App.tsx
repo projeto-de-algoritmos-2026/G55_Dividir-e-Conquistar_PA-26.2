@@ -1,6 +1,7 @@
 import { BrowserRouter, Outlet, Route, Routes } from 'react-router'
 import Cabecalho from './components/Cabecalho'
 import Mapa from './pages/Mapa'
+import PassoAPasso from './pages/PassoAPasso'
 
 function Layout() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Mapa />} />
+          <Route path="/passo-a-passo" element={<PassoAPasso />} />
         </Route>
       </Routes>
     </BrowserRouter>

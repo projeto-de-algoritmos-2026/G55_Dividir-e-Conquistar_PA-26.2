@@ -90,11 +90,21 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 - [x] Mapa interativo com todos os epicentros e o par mais próximo destacado
 - [x] Painel do par com magnitude, profundidade, data, local e distância
 - [x] Indicador de verificação geodésica em todo resultado
-- [ ] Modo didático com animação passo a passo da recursão (reta L, δ, faixa 2δ, comparações)
+- [x] Modo didático com animação passo a passo da recursão (reta L, δ, faixa 2δ, comparações)
 - [ ] Painel comparativo entre força bruta, O(n log² n) e O(n log n), com tempo e número de comparações
 - [ ] Gráfico de tempo de execução por tamanho de entrada
 - [x] Verificador contra força bruta em instâncias aleatórias
 - [x] Gerador de instâncias sintéticas para teste de desempenho
+
+### Fase 7 — Modo Didático
+
+- [x] Tela "Passo a Passo" em SVG com coordenadas projetadas
+- [x] Desenho da reta L em cada divisão
+- [x] Destaque dos pares vencedores de cada lado e do valor de δ
+- [x] Faixa 2δ sombreada e pontos numerados por ordem de y
+- [x] Animação das comparações com os 7 vizinhos
+- [x] Controles: avançar, voltar, reproduzir, pausar, reiniciar e velocidade
+- [x] Legenda explicando cada etapa em linguagem simples
 
 ---
 
@@ -135,6 +145,30 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 ### Fonte dos dados
 
 Catálogo ComCat do **USGS** (*United States Geological Survey*), consultado pelo FDSN Event Web Service, público e sem chave de acesso. O serviço limita cada consulta a 20.000 eventos, por isso o script de download divide períodos longos em janelas menores.
+
+### Fase 1 — Dados (concluída)
+
+**Responsável:** Mateus Bastos
+
+- [x] Download pelo FDSN Event Web Service, consultando `count` e dividindo períodos que excedem 20.000 eventos.
+- [x] Regiões pré-configuradas por caixa de coordenadas, todas longe do antimeridiano.
+- [x] Catálogos reais baixados, reduzidos às colunas `id`, `time`, `latitude`, `longitude`, `depth`, `mag` e `place`, e versionados em `backend/app/data/`.
+- [x] Validação de colunas obrigatórias, valores e coordenadas válidos e IDs duplicados.
+- [x] Gerador de catálogos sintéticos reproduzível por semente.
+
+| Catálogo | Região |
+|---|---|
+| `japao.csv` | Japão |
+| `chile.csv` | Chile |
+| `california.csv` | Califórnia |
+| `turquia.csv` | Turquia |
+
+Para validar os catálogos versionados ou gerar uma instância sintética, execute a partir de `backend/`:
+
+```bash
+uv run python scripts/validar_dados.py
+uv run python scripts/gerar_sintetico.py --n 1000 --semente 42 --regiao japao
+```
 
 ---
 
@@ -212,6 +246,12 @@ docker compose run --rm backend uv run pytest
 # Download de um catálogo do USGS
 docker compose run --rm backend uv run python scripts/baixar_catalogo.py --regiao japao --inicio 2024-01-01 --fim 2024-12-31 --mag-min 2.5
 
+# Validação dos catálogos versionados
+docker compose run --rm backend uv run python scripts/validar_dados.py
+
+# Geração reprodutível de dados sintéticos
+docker compose run --rm backend uv run python scripts/gerar_sintetico.py --n 1000 --semente 42 --regiao japao
+
 # Benchmark das três versões do algoritmo
 docker compose run --rm backend uv run python scripts/benchmark.py
 ```
@@ -241,6 +281,8 @@ npm run dev
 ```bash
 uv run pytest
 uv run python scripts/baixar_catalogo.py --regiao japao --inicio 2024-01-01 --fim 2024-12-31 --mag-min 2.5
+uv run python scripts/validar_dados.py
+uv run python scripts/gerar_sintetico.py --n 1000 --semente 42 --regiao japao
 uv run python scripts/benchmark.py
 ```
 

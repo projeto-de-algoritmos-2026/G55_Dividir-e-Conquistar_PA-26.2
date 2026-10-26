@@ -5,8 +5,10 @@ import type {
   ImportacaoResposta,
   ListaEventos,
   ParMaisProximo,
+  PassoAPasso,
   Regiao,
   RequisicaoCalculo,
+  RequisicaoPassoAPasso,
   RespostaSaude,
 } from '../types'
 
@@ -99,4 +101,8 @@ export function importarCatalogo(arquivo: File): Promise<ImportacaoResposta> {
 
 export function buscarParMaisProximo(requisicao: RequisicaoCalculo): Promise<ParMaisProximo> {
   return postarJson<ParMaisProximo>('/par-mais-proximo', semVazios(requisicao))
+}
+
+export function buscarPassoAPasso(requisicao: RequisicaoPassoAPasso): Promise<PassoAPasso> {
+  return postarJson<PassoAPasso>('/passo-a-passo', semVazios(requisicao))
 }
