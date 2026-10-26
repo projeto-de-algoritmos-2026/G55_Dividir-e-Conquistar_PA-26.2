@@ -86,7 +86,7 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 - [ ] Importação de catálogo próprio em CSV (formato USGS), com validação por linha e coluna
 - [ ] Filtros por período, magnitude mínima e profundidade máxima
 - [x] Projeção azimutal equidistante por região, com distâncias em quilômetros
-- [ ] Tratamento de empates em x e de epicentros coincidentes
+- [x] Tratamento de empates em x e de epicentros coincidentes
 - [ ] Mapa interativo com todos os epicentros e o par mais próximo destacado
 - [ ] Painel do par com magnitude, profundidade, data, local e distância
 - [ ] Indicador de verificação geodésica em todo resultado
