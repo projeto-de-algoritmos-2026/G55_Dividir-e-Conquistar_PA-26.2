@@ -87,9 +87,9 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 - [x] Filtros por período, magnitude mínima e profundidade máxima
 - [x] Projeção azimutal equidistante por região, com distâncias em quilômetros
 - [x] Tratamento de empates em x e de epicentros coincidentes
-- [ ] Mapa interativo com todos os epicentros e o par mais próximo destacado
-- [ ] Painel do par com magnitude, profundidade, data, local e distância
-- [ ] Indicador de verificação geodésica em todo resultado
+- [x] Mapa interativo com todos os epicentros e o par mais próximo destacado
+- [x] Painel do par com magnitude, profundidade, data, local e distância
+- [x] Indicador de verificação geodésica em todo resultado
 - [ ] Modo didático com animação passo a passo da recursão (reta L, δ, faixa 2δ, comparações)
 - [ ] Painel comparativo entre força bruta, O(n log² n) e O(n log n), com tempo e número de comparações
 - [ ] Gráfico de tempo de execução por tamanho de entrada
