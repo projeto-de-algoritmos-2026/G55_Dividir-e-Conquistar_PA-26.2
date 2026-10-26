@@ -1,0 +1,24 @@
+{
+  "regiao": "japao",
+  "tamanhos": [
+    100,
+    250,
+    500,
+    1000,
+    2000,
+    5000,
+    10000,
+    20000,
+    50000,
+    100000
+  ],
+  "repeticoes": 3,
+  "semente": 42,
+  "limite_forca_bruta": 2000,
+  "python": "3.12.3",
+  "plataforma": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "processador": "x86_64",
+  "cpus_logicas": 16,
+  "tempo_script_s": 11.34,
+  "csv": "docs/dados/benchmark.csv"
+}

@@ -3,6 +3,7 @@ import { NavLink } from 'react-router'
 const ITENS = [
   { para: '/', rotulo: 'Mapa' },
   { para: '/passo-a-passo', rotulo: 'Passo a Passo' },
+  { para: '/comparativo', rotulo: 'Comparativo' },
 ]
 
 /** Traço de sismograma usado como marca: calmo, um abalo, calmo de novo. */

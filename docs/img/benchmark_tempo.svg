@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="titulo descricao">
+<title id="titulo">Tempo médio dos algoritmos</title>
+<desc id="descricao">Gráfico log-log dos resultados medidos pelo script benchmark.py.</desc>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="480.0" y="34" text-anchor="middle" font-family="sans-serif" font-size="20" font-weight="700" fill="#1c2a35">Tempo médio dos algoritmos</text>
+<line x1="92" y1="384.15" x2="710" y2="384.15" stroke="#dfe6e2" stroke-width="1"/>
+<text x="80" y="388.15" text-anchor="end" font-family="sans-serif" font-size="12" fill="#4f5f6a">1</text>
+<line x1="92" y1="289.00" x2="710" y2="289.00" stroke="#dfe6e2" stroke-width="1"/>
+<text x="80" y="293.00" text-anchor="end" font-family="sans-serif" font-size="12" fill="#4f5f6a">10</text>
+<line x1="92" y1="193.84" x2="710" y2="193.84" stroke="#dfe6e2" stroke-width="1"/>
+<text x="80" y="197.84" text-anchor="end" font-family="sans-serif" font-size="12" fill="#4f5f6a">100</text>
+<line x1="92" y1="98.69" x2="710" y2="98.69" stroke="#dfe6e2" stroke-width="1"/>
+<text x="80" y="102.69" text-anchor="end" font-family="sans-serif" font-size="12" fill="#4f5f6a">1000</text>
+<line x1="92.00" y1="76" x2="92.00" y2="460" stroke="#eef2f0" stroke-width="1"/>
+<text x="92.00" y="482" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4f5f6a">100</text>
+<line x1="173.98" y1="76" x2="173.98" y2="460" stroke="#eef2f0" stroke-width="1"/>
+<text x="173.98" y="482" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4f5f6a">250</text>
+<line x1="235.99" y1="76" x2="235.99" y2="460" stroke="#eef2f0" stroke-width="1"/>
+<text x="235.99" y="482" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4f5f6a">500</text>
+<line x1="298.00" y1="76" x2="298.00" y2="460" stroke="#eef2f0" stroke-width="1"/>
+<text x="298.00" y="482" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4f5f6a">1,000</text>
+<line x1="360.01" y1="76" x2="360.01" y2="460" stroke="#eef2f0" stroke-width="1"/>
+<text x="360.01" y="482" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4f5f6a">2,000</text>
+<line x1="441.99" y1="76" x2="441.99" y2="460" stroke="#eef2f0" stroke-width="1"/>
+<text x="441.99" y="482" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4f5f6a">5,000</text>
+<line x1="504.00" y1="76" x2="504.00" y2="460" stroke="#eef2f0" stroke-width="1"/>
+<text x="504.00" y="482" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4f5f6a">10,000</text>
+<line x1="566.01" y1="76" x2="566.01" y2="460" stroke="#eef2f0" stroke-width="1"/>
+<text x="566.01" y="482" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4f5f6a">20,000</text>
+<line x1="647.99" y1="76" x2="647.99" y2="460" stroke="#eef2f0" stroke-width="1"/>
+<text x="647.99" y="482" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4f5f6a">50,000</text>
+<line x1="710.00" y1="76" x2="710.00" y2="460" stroke="#eef2f0" stroke-width="1"/>
+<text x="710.00" y="482" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4f5f6a">100,000</text>
+<line x1="92" y1="460" x2="710" y2="460" stroke="#52616b" stroke-width="1.5"/>
+<line x1="92" y1="76" x2="92" y2="460" stroke="#52616b" stroke-width="1.5"/>
+<text x="401.0" y="535" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#1c2a35">Quantidade de pontos n (escala log)</text>
+<text x="22" y="268.0" text-anchor="middle" transform="rotate(-90 22 268.0)" font-family="sans-serif" font-size="14" fill="#1c2a35">Tempo médio (ms) (escala log)</text>
+<path d="M 92.00 422.95 L 173.98 344.32 L 235.99 283.48 L 298.00 225.45 L 360.01 167.95" fill="none" stroke="#c1272d" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="92.00" cy="422.95" r="4" fill="#c1272d"/>
+<circle cx="173.98" cy="344.32" r="4" fill="#c1272d"/>
+<circle cx="235.99" cy="283.48" r="4" fill="#c1272d"/>
+<circle cx="298.00" cy="225.45" r="4" fill="#c1272d"/>
+<circle cx="360.01" cy="167.95" r="4" fill="#c1272d"/>
+<line x1="730" y1="98" x2="758" y2="98" stroke="#c1272d" stroke-width="3"/>
+<text x="766" y="102" font-family="sans-serif" font-size="12" fill="#1c2a35">Força bruta</text>
+<path d="M 92.00 433.52 L 173.98 383.94 L 235.99 350.45 L 298.00 317.67 L 360.01 284.23 L 441.99 242.41 L 504.00 207.76 L 566.01 177.10 L 647.99 134.30 L 710.00 102.48" fill="none" stroke="#d19a22" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="92.00" cy="433.52" r="4" fill="#d19a22"/>
+<circle cx="173.98" cy="383.94" r="4" fill="#d19a22"/>
+<circle cx="235.99" cy="350.45" r="4" fill="#d19a22"/>
+<circle cx="298.00" cy="317.67" r="4" fill="#d19a22"/>
+<circle cx="360.01" cy="284.23" r="4" fill="#d19a22"/>
+<circle cx="441.99" cy="242.41" r="4" fill="#d19a22"/>
+<circle cx="504.00" cy="207.76" r="4" fill="#d19a22"/>
+<circle cx="566.01" cy="177.10" r="4" fill="#d19a22"/>
+<circle cx="647.99" cy="134.30" r="4" fill="#d19a22"/>
+<circle cx="710.00" cy="102.48" r="4" fill="#d19a22"/>
+<line x1="730" y1="126" x2="758" y2="126" stroke="#d19a22" stroke-width="3"/>
+<text x="766" y="130" font-family="sans-serif" font-size="12" fill="#1c2a35">Closest-Pair</text>
+<path d="M 92.00 431.22 L 173.98 386.48 L 235.99 353.37 L 298.00 320.39 L 360.01 289.35 L 441.99 247.56 L 504.00 212.90 L 566.01 180.88 L 647.99 138.05 L 710.00 103.52" fill="none" stroke="#2e7d4f" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="92.00" cy="431.22" r="4" fill="#2e7d4f"/>
+<circle cx="173.98" cy="386.48" r="4" fill="#2e7d4f"/>
+<circle cx="235.99" cy="353.37" r="4" fill="#2e7d4f"/>
+<circle cx="298.00" cy="320.39" r="4" fill="#2e7d4f"/>
+<circle cx="360.01" cy="289.35" r="4" fill="#2e7d4f"/>
+<circle cx="441.99" cy="247.56" r="4" fill="#2e7d4f"/>
+<circle cx="504.00" cy="212.90" r="4" fill="#2e7d4f"/>
+<circle cx="566.01" cy="180.88" r="4" fill="#2e7d4f"/>
+<circle cx="647.99" cy="138.05" r="4" fill="#2e7d4f"/>
+<circle cx="710.00" cy="103.52" r="4" fill="#2e7d4f"/>
+<line x1="730" y1="154" x2="758" y2="154" stroke="#2e7d4f" stroke-width="3"/>
+<text x="766" y="158" font-family="sans-serif" font-size="12" fill="#1c2a35">Sort_and_Closest-Pair</text>
+</svg>

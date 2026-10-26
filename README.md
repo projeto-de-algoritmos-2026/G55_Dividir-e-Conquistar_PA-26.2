@@ -91,8 +91,8 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 - [x] Painel do par com magnitude, profundidade, data, local e distância
 - [x] Indicador de verificação geodésica em todo resultado
 - [x] Modo didático com animação passo a passo da recursão (reta L, δ, faixa 2δ, comparações)
-- [ ] Painel comparativo entre força bruta, O(n log² n) e O(n log n), com tempo e número de comparações
-- [ ] Gráfico de tempo de execução por tamanho de entrada
+- [x] Painel comparativo entre força bruta, O(n log² n) e O(n log n), com tempo e número de comparações
+- [x] Gráfico de tempo de execução por tamanho de entrada
 - [x] Verificador contra força bruta em instâncias aleatórias
 - [x] Gerador de instâncias sintéticas para teste de desempenho
 
@@ -105,6 +105,16 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 - [x] Animação das comparações com os 7 vizinhos
 - [x] Controles: avançar, voltar, reproduzir, pausar, reiniciar e velocidade
 - [x] Legenda explicando cada etapa em linguagem simples
+
+### Fase 8 — Benchmark e Análise Experimental
+
+- [x] `scripts/benchmark.py` com tamanhos sintéticos de 100 a 100.000 pontos para as versões rápidas
+- [x] Força bruta limitada a n ≤ 2.000
+- [x] Três repetições por tamanho, registrando tempos individuais, média e comparações
+- [x] Resultados brutos e parâmetros salvos em `docs/dados/`
+- [x] Gráficos de tempo e comparações gerados em `docs/img/`
+- [x] Aba "Comparativo" consumindo `/api/comparativo` e `/api/benchmark`
+- [x] Análise experimental documentada em [`docs/analise_experimental.md`](./docs/analise_experimental.md)
 
 ---
 
@@ -344,7 +354,7 @@ O campo `verificacao_geodesica.status` do par mais próximo vale `confirmado` (a
 
 ## Análise Experimental
 
-Pendente.
+Resultados medidos, metodologia, comparação com as complexidades teóricas e efeito da projeção estão em [`docs/analise_experimental.md`](./docs/analise_experimental.md). O CSV bruto e seus metadados estão em [`docs/dados/benchmark.csv`](./docs/dados/benchmark.csv) e [`docs/dados/benchmark_metadados.json`](./docs/dados/benchmark_metadados.json); os gráficos estão em [`docs/img/benchmark_tempo.svg`](./docs/img/benchmark_tempo.svg) e [`docs/img/benchmark_comparacoes.svg`](./docs/img/benchmark_comparacoes.svg).
 
 ---
 

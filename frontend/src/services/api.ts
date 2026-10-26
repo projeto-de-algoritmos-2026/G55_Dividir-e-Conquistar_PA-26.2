@@ -1,6 +1,8 @@
 import type {
   ErroCampo,
   ErroLinhaImportacao,
+  Benchmark,
+  Comparativo,
   Filtros,
   ImportacaoResposta,
   ListaEventos,
@@ -105,4 +107,20 @@ export function buscarParMaisProximo(requisicao: RequisicaoCalculo): Promise<Par
 
 export function buscarPassoAPasso(requisicao: RequisicaoPassoAPasso): Promise<PassoAPasso> {
   return postarJson<PassoAPasso>('/passo-a-passo', semVazios(requisicao))
+}
+
+export function compararAlgoritmos(requisicao: RequisicaoCalculo): Promise<Comparativo> {
+  return postarJson<Comparativo>('/comparativo', semVazios(requisicao))
+}
+
+export function buscarBenchmark(
+  tamanhos: number[],
+  repeticoes = 3,
+  semente = 42,
+): Promise<Benchmark> {
+  const consulta = new URLSearchParams()
+  for (const tamanho of tamanhos) consulta.append('tamanhos', String(tamanho))
+  consulta.set('repeticoes', String(repeticoes))
+  consulta.set('semente', String(semente))
+  return requisitar<Benchmark>(`/benchmark?${consulta}`)
 }
