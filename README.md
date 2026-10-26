@@ -83,8 +83,8 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 
 - [x] Download de catálogos do USGS por região, período e magnitude mínima
 - [x] Catálogos de exemplo versionados no repositório para uso offline
-- [ ] Importação de catálogo próprio em CSV (formato USGS), com validação por linha e coluna
-- [ ] Filtros por período, magnitude mínima e profundidade máxima
+- [x] Importação de catálogo próprio em CSV (formato USGS), com validação por linha e coluna
+- [x] Filtros por período, magnitude mínima e profundidade máxima
 - [x] Projeção azimutal equidistante por região, com distâncias em quilômetros
 - [x] Tratamento de empates em x e de epicentros coincidentes
 - [ ] Mapa interativo com todos os epicentros e o par mais próximo destacado
@@ -93,7 +93,7 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 - [ ] Modo didático com animação passo a passo da recursão (reta L, δ, faixa 2δ, comparações)
 - [ ] Painel comparativo entre força bruta, O(n log² n) e O(n log n), com tempo e número de comparações
 - [ ] Gráfico de tempo de execução por tamanho de entrada
-- [ ] Verificador contra força bruta em instâncias aleatórias
+- [x] Verificador contra força bruta em instâncias aleatórias
 - [x] Gerador de instâncias sintéticas para teste de desempenho
 
 ---
@@ -260,30 +260,43 @@ uv run python scripts/benchmark.py
 
 ### API
 
-Todas as rotas ficam sob `/api` e estão documentadas em `http://localhost:8000/docs`.
+Todas as rotas estão documentadas, com exemplos prontos para testar, em `http://localhost:8000/docs`. Erros de validação voltam em português, com o campo e a mensagem.
 
 | Método e rota | O que responde |
 |---|---|
-| `GET /regioes` | Regiões disponíveis, com período e número de eventos |
-| `GET /regioes/{id}/eventos` | Eventos da região, com filtros opcionais |
-| `POST /catalogos/importar` | Importa um catálogo próprio em CSV (fica só em memória) |
-| `POST /par-mais-proximo` | Par mais próximo, distâncias e status da verificação geodésica |
-| `POST /passo-a-passo` | Registro da recursão para o modo didático (amostra limitada) |
-| `POST /comparativo` | As três versões lado a lado, com tempo e número de comparações |
-| `POST /validar` | Algoritmos contra força bruta em instâncias aleatórias |
-| `GET /benchmark` | Tempo de execução para n crescente |
+| `GET /api/saude` | Confirma que a API está no ar |
+| `GET /api/regioes` | Regiões e catálogos importados, com caixa, centro, período e número de eventos |
+| `GET /api/regioes/{id}/eventos` | Eventos da região, com filtros opcionais na consulta (`inicio`, `fim`, `magnitude_min`, `profundidade_max`) |
+| `POST /api/catalogos/importar` | Importa um CSV próprio (campo `arquivo`, formato USGS); fica só em memória e devolve um id |
+| `POST /api/par-mais-proximo` | Par mais próximo (O(n log n)), distâncias projetada e geodésica, comparações, tempo e verificação geodésica |
+| `POST /api/passo-a-passo` | Registro da recursão sobre uma amostra (`tamanho_amostra`, `semente`), para o modo didático |
+| `POST /api/comparativo` | As três versões sobre os mesmos eventos, com tempo e número de comparações |
+| `POST /api/validar` | As duas versões de divisão e conquista contra a força bruta em instâncias aleatórias |
+| `GET /api/benchmark` | Tempo médio e comparações para n crescente (`tamanhos`, `repeticoes`, `semente`) |
 
-As rotas `POST` de cálculo recebem o mesmo corpo:
+As rotas `POST` de cálculo recebem o mesmo corpo. Só `regiao_id` é obrigatório; as datas são inclusivas. O id devolvido pela importação vale como `regiao_id`.
 
 ```json
 {
-  "regiao_id": "japao",
-  "inicio": "2024-01-01",
-  "fim": "2024-12-31",
-  "magnitude_min": 2.5,
+  "regiao_id": "turquia",
+  "inicio": "2023-01-01",
+  "fim": "2023-12-31",
+  "magnitude_min": 4.0,
   "profundidade_max": 700
 }
 ```
+
+O campo `verificacao_geodesica.status` do par mais próximo vale `confirmado` (a força bruta com Haversine achou a mesma distância mínima na esfera), `divergente` (a projeção mudou o par) ou `nao_verificado` (acima do limite de tamanho).
+
+**Limites** (em [`backend/app/limites.py`](./backend/app/limites.py)):
+
+| Limite | Valor |
+|---|--:|
+| Verificação geodésica automática | 3.000 eventos |
+| Amostra do passo a passo | 200 eventos (padrão 30) |
+| Força bruta no comparativo | 10.000 eventos |
+| Benchmark ao vivo | n ≤ 20.000, força bruta até 2.000, até 5 repetições |
+| Importação | 10 MB por arquivo, 10 catálogos em memória, caixa de até 45° |
 
 ---
 
