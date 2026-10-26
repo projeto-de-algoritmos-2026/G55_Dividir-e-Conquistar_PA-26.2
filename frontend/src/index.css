@@ -1,1 +1,76 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: "Archivo", ui-sans-serif, system-ui, sans-serif;
+
+  /* Papel de sismógrafo e tinta de registro */
+  --color-papel: #eef2f0;
+  --color-papel-escuro: #dfe6e2;
+  --color-grade: #cfd9d4;
+  --color-tinta: #1c2a35;
+  --color-tinta-suave: #4f5f6a;
+  --color-epicentro: #3d6a86;
+  --color-registro: #c1272d;
+  --color-confirmado: #2e7d4f;
+  --color-divergente: #a16207;
+  --color-neutro: #6b7280;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-papel);
+  color: var(--color-tinta);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Quadriculado fino do papel de registro, só na barra lateral */
+.papel-quadriculado {
+  background-color: var(--color-papel);
+  background-image:
+    linear-gradient(var(--color-grade) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grade) 1px, transparent 1px);
+  background-size: 24px 24px;
+  background-position: -1px -1px;
+}
+
+.numeros {
+  font-variant-numeric: tabular-nums;
+}
+
+.titulo {
+  font-stretch: 85%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-epicentro);
+  outline-offset: 2px;
+}
+
+/* Rótulo da distância sobre a linha do par */
+.leaflet-tooltip.rotulo-distancia {
+  background: var(--color-registro);
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  color: white;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  padding: 2px 8px;
+}
+
+.leaflet-tooltip.rotulo-distancia::before {
+  display: none;
+}
+
+.leaflet-popup-content {
+  font-family: var(--font-sans);
+  margin: 10px 12px;
+}

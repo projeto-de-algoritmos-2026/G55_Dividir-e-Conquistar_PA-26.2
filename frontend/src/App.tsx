@@ -1,11 +1,25 @@
-import { BrowserRouter, Route, Routes } from 'react-router'
-import Inicio from './pages/Inicio'
+import { BrowserRouter, Outlet, Route, Routes } from 'react-router'
+import Cabecalho from './components/Cabecalho'
+import Mapa from './pages/Mapa'
+
+function Layout() {
+  return (
+    <div className="flex h-full flex-col">
+      <Cabecalho />
+      <div className="min-h-0 flex-1">
+        <Outlet />
+      </div>
+    </div>
+  )
+}
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Inicio />} />
+        <Route element={<Layout />}>
+          <Route path="/" element={<Mapa />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
