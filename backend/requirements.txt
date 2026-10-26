@@ -55,6 +55,8 @@ pyproj==3.8.0
 pytest==9.1.1
 python-dotenv==1.2.4
     # via uvicorn
+python-multipart==0.0.32
+    # via sismopar-backend
 pyyaml==6.0.3
     # via uvicorn
 starlette==1.9.0
