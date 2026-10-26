@@ -9,11 +9,7 @@ from app.models.evento import Evento
 from app.services.eventos import carregar_eventos
 from app.services.regioes import REGIOES
 from app.services.sintetico import gerar_eventos
-from tests.fabricas import evento
-
-VERSOES = pytest.mark.parametrize(
-    "closest_pair", [closest_pair_nlog2n, closest_pair_nlogn], ids=["nlog2n", "nlogn"]
-)
+from tests.fabricas import VERSOES, evento
 
 
 def _sinteticos(n, semente, id_regiao="japao"):
