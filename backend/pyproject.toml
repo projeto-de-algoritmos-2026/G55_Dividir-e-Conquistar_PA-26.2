@@ -25,3 +25,6 @@ packages = ["app"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+    "lento: testes demorados (força bruta geodésica nos catálogos reais); pule com -m \"not lento\"",
+]
