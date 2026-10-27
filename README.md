@@ -116,6 +116,15 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 - [x] Aba "Comparativo" consumindo `/api/comparativo` e `/api/benchmark`
 - [x] Análise experimental documentada em [`docs/analise_experimental.md`](./docs/analise_experimental.md)
 
+### Fase 9 — Provas Formais
+
+- [x] Corretude por indução, cobrindo pares à esquerda, à direita e cruzando a reta divisória
+- [x] Lema de empacotamento da faixa e justificativa para comparar no máximo os próximos 7 pontos
+- [x] Recorrência e resolução da versão que reordena a faixa por y: O(n log² n)
+- [x] Recorrência e resolução da versão que combina listas ordenadas por y: O(n log n)
+- [x] Discussão do efeito da projeção e da validação geodésica
+- [x] Demonstrações documentadas em [`docs/provas_formais.md`](./docs/provas_formais.md)
+
 ---
 
 ## Tecnologias Utilizadas
