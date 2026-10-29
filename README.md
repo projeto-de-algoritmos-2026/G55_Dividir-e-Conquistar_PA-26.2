@@ -81,7 +81,7 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 
 ### Funcionalidades da aplicação
 
-- [x] Download de catálogos do USGS por região, período e magnitude mínima
+- [x] Download de catálogos do USGS por região, período e magnitude mínima pelo script do backend
 - [x] Catálogos de exemplo versionados no repositório para uso offline
 - [x] Importação de catálogo próprio em CSV (formato USGS), com validação por linha e coluna
 - [x] Filtros por período, magnitude mínima e profundidade máxima
@@ -133,6 +133,15 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 - [x] Proxy do frontend configurado para acessar o backend pelo nome do serviço Docker
 - [x] Inicialização verificada com `docker compose up --build` e comunicação frontend/backend validada
 - [x] Testes do backend aprovados com `docker compose run --rm backend uv run pytest` (192 testes)
+
+### Fase 11 — Entrega
+
+- [x] Capturas das cinco telas principais em 1366×768
+- [x] Resultados experimentais resumidos e relatório detalhado vinculado
+- [x] README revisado, com links locais verificados e instruções de clonagem corrigidas
+- [x] Suíte completa do backend: 192 testes aprovados (1 aviso de depreciação do Starlette/httpx)
+- [x] Vídeo de apresentação em [`docs/apresentacao.mp4`](./docs/apresentacao.mp4)
+- [x] Versão de entrega identificada pela tag `v0.1.0`
 
 ---
 
@@ -244,8 +253,8 @@ G55_DividirConquistar_PA-26.2/
 ### 1. Clonando o Repositório
 
 ```bash
-git clone https://github.com/projeto-de-algoritmos-2026/G55_DividirConquistar_PA-26.2.git
-cd G55_DividirConquistar_PA-26.2
+git clone https://github.com/projeto-de-algoritmos-2026/G55_Dividir-e-Conquistar_PA-26.2.git
+cd G55_Dividir-e-Conquistar_PA-26.2
 ```
 
 ### 2. Rodando com Docker (recomendado)
@@ -372,19 +381,38 @@ O campo `verificacao_geodesica.status` do par mais próximo vale `confirmado` (a
 
 ## Análise Experimental
 
-Resultados medidos, metodologia, comparação com as complexidades teóricas e efeito da projeção estão em [`docs/analise_experimental.md`](./docs/analise_experimental.md). O CSV bruto e seus metadados estão em [`docs/dados/benchmark.csv`](./docs/dados/benchmark.csv) e [`docs/dados/benchmark_metadados.json`](./docs/dados/benchmark_metadados.json); os gráficos estão em [`docs/img/benchmark_tempo.svg`](./docs/img/benchmark_tempo.svg) e [`docs/img/benchmark_comparacoes.svg`](./docs/img/benchmark_comparacoes.svg).
+O benchmark usa pontos sintéticos uniformes na região do Japão, semente 42 e três repetições por tamanho. As médias medidas ilustram a diferença prática entre os algoritmos:
+
+| n | Força bruta Θ(n²) | Closest-Pair O(n log² n) | Sort_and_Closest-Pair O(n log n) |
+|---:|---:|---:|---:|
+| 2.000 | 187,116 ms · 1.999.000 comparações | 11,221 ms · 3.032 comparações | 9,915 ms · 3.032 comparações |
+| 100.000 | — (limite n ≤ 2.000) | 912,228 ms · 166.770 comparações | 889,638 ms · 166.770 comparações |
+
+Na validação geodésica, 2 das 404 instâncias testadas divergiram entre o par plano e o par calculado por Haversine; os quatro catálogos regionais completos não tiveram divergências. São resultados dos conjuntos medidos, não uma garantia geral sobre a projeção.
+
+A metodologia, os resultados completos, a análise das complexidades e o efeito da projeção estão em [`docs/analise_experimental.md`](./docs/analise_experimental.md). Os dados brutos e os metadados estão em [`docs/dados/benchmark.csv`](./docs/dados/benchmark.csv) e [`docs/dados/benchmark_metadados.json`](./docs/dados/benchmark_metadados.json); os gráficos estão em [`docs/img/benchmark_tempo.svg`](./docs/img/benchmark_tempo.svg) e [`docs/img/benchmark_comparacoes.svg`](./docs/img/benchmark_comparacoes.svg).
 
 ---
 
 ## Screenshots
 
-Pendente.
+| Seleção da região e filtros | Mapa com o par mais próximo |
+|---|---|
+| ![Seleção da região e filtros](./docs/img/selecao.png) | ![Mapa com o par mais próximo](./docs/img/mapa-par-mais-proximo.png) |
+
+| Modo passo a passo | Comparativo de algoritmos |
+|---|---|
+| ![Passo a passo do algoritmo](./docs/img/passo-a-passo.png) | ![Comparativo de algoritmos](./docs/img/comparativo.png) |
+
+**Estado de erro:** consulta sem eventos após aplicar os filtros.
+
+![Mensagem de erro após uma consulta sem eventos](./docs/img/estado-de-erro.png)
 
 ---
 
 ## Apresentação
 
-Pendente.
+[Assistir à apresentação do SismoPar (MP4)](./docs/apresentacao.mp4) — vídeo sem narração, composto pelas capturas da aplicação.
 
 ---
 
