@@ -125,6 +125,15 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 - [x] Discussão do efeito da projeção e da validação geodésica
 - [x] Demonstrações documentadas em [`docs/provas_formais.md`](./docs/provas_formais.md)
 
+### Fase 10 — Docker
+
+- [x] Dockerfile do backend com `uv`
+- [x] Dockerfile do frontend com Node.js 20.19 ou superior
+- [x] `docker-compose.yml` com os dois serviços e volumes para código e dependências
+- [x] Proxy do frontend configurado para acessar o backend pelo nome do serviço Docker
+- [x] Inicialização verificada com `docker compose up --build` e comunicação frontend/backend validada
+- [x] Testes do backend aprovados com `docker compose run --rm backend uv run pytest` (192 testes)
+
 ---
 
 ## Tecnologias Utilizadas
