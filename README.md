@@ -212,7 +212,7 @@ uv run python scripts/gerar_sintetico.py --n 1000 --semente 42 --regiao japao
 ## Estrutura do Projeto
 
 ```
-G55_DividirConquistar_PA-26.2/
+G55_Dividir-e-Conquistar_PA-26.2/
 ├── backend/
 │   ├── app/
 │   │   ├── algorithms/     # mergesort, força bruta e closest pair (um arquivo por algoritmo)
@@ -238,6 +238,7 @@ G55_DividirConquistar_PA-26.2/
 │   ├── package.json
 │   └── vite.config.ts
 ├── docs/
+│   ├── apresentacao.mp4    # vídeo da aplicação, sem narração
 │   ├── provas_formais.md
 │   ├── analise_experimental.md
 │   ├── dados/              # dados brutos que sustentam a análise experimental
