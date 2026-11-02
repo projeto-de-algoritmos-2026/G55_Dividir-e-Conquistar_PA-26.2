@@ -96,53 +96,6 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 - [x] Verificador contra força bruta em instâncias aleatórias
 - [x] Gerador de instâncias sintéticas para teste de desempenho
 
-### Fase 7 — Modo Didático
-
-- [x] Tela "Passo a Passo" em SVG com coordenadas projetadas
-- [x] Desenho da reta L em cada divisão
-- [x] Destaque dos pares vencedores de cada lado e do valor de δ
-- [x] Faixa 2δ sombreada e pontos numerados por ordem de y
-- [x] Animação das comparações com os 7 vizinhos
-- [x] Controles: avançar, voltar, reproduzir, pausar, reiniciar e velocidade
-- [x] Legenda explicando cada etapa em linguagem simples
-
-### Fase 8 — Benchmark e Análise Experimental
-
-- [x] `scripts/benchmark.py` com tamanhos sintéticos de 100 a 100.000 pontos para as versões rápidas
-- [x] Força bruta limitada a n ≤ 2.000
-- [x] Três repetições por tamanho, registrando tempos individuais, média e comparações
-- [x] Resultados brutos e parâmetros salvos em `docs/dados/`
-- [x] Gráficos de tempo e comparações gerados em `docs/img/`
-- [x] Aba "Comparativo" consumindo `/api/comparativo` e `/api/benchmark`
-- [x] Análise experimental documentada em [`docs/analise_experimental.md`](./docs/analise_experimental.md)
-
-### Fase 9 — Provas Formais
-
-- [x] Corretude por indução, cobrindo pares à esquerda, à direita e cruzando a reta divisória
-- [x] Lema de empacotamento da faixa e justificativa para comparar no máximo os próximos 7 pontos
-- [x] Recorrência e resolução da versão que reordena a faixa por y: O(n log² n)
-- [x] Recorrência e resolução da versão que combina listas ordenadas por y: O(n log n)
-- [x] Discussão do efeito da projeção e da validação geodésica
-- [x] Demonstrações documentadas em [`docs/provas_formais.md`](./docs/provas_formais.md)
-
-### Fase 10 — Docker
-
-- [x] Dockerfile do backend com `uv`
-- [x] Dockerfile do frontend com Node.js 20.19 ou superior
-- [x] `docker-compose.yml` com os dois serviços e volumes para código e dependências
-- [x] Proxy do frontend configurado para acessar o backend pelo nome do serviço Docker
-- [x] Inicialização verificada com `docker compose up --build` e comunicação frontend/backend validada
-- [x] Testes do backend aprovados com `docker compose run --rm backend uv run pytest` (192 testes)
-
-### Fase 11 — Entrega
-
-- [x] Capturas das cinco telas principais em 1366×768
-- [x] Resultados experimentais resumidos e relatório detalhado vinculado
-- [x] README revisado, com links locais verificados e instruções de clonagem corrigidas
-- [x] Suíte completa do backend: 192 testes aprovados (1 aviso de depreciação do Starlette/httpx)
-- [x] Vídeo de apresentação em [`docs/apresentacao.mp4`](./docs/apresentacao.mp4)
-- [x] Versão de entrega identificada pela tag `v0.1.0`
-
 ---
 
 ## Tecnologias Utilizadas
@@ -182,16 +135,6 @@ Repete a força bruta usando a distância de Haversine sobre latitude e longitud
 ### Fonte dos dados
 
 Catálogo ComCat do **USGS** (*United States Geological Survey*), consultado pelo FDSN Event Web Service, público e sem chave de acesso. O serviço limita cada consulta a 20.000 eventos, por isso o script de download divide períodos longos em janelas menores.
-
-### Fase 1 — Dados (concluída)
-
-**Responsável:** Mateus Bastos
-
-- [x] Download pelo FDSN Event Web Service, consultando `count` e dividindo períodos que excedem 20.000 eventos.
-- [x] Regiões pré-configuradas por caixa de coordenadas, todas longe do antimeridiano.
-- [x] Catálogos reais baixados, reduzidos às colunas `id`, `time`, `latitude`, `longitude`, `depth`, `mag` e `place`, e versionados em `backend/app/data/`.
-- [x] Validação de colunas obrigatórias, valores e coordenadas válidos e IDs duplicados.
-- [x] Gerador de catálogos sintéticos reproduzível por semente.
 
 | Catálogo | Região |
 |---|---|
