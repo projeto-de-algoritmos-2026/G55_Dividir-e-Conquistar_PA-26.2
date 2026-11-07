@@ -356,7 +356,9 @@ A metodologia, os resultados completos, a análise das complexidades e o efeito 
 
 ## Apresentação
 
-[Assistir à apresentação do SismoPar (MP4)](./docs/apresentacao.mp4) — vídeo sem narração, composto pelas capturas da aplicação.
+**Clique na tela abaixo para ter acesso a o vídeo**:
+
+[![Tela inicial do vídeo de apresentação do SismoPar](https://img.youtube.com/vi/8BftsVTWR0M/hqdefault.jpg)](https://youtu.be/8BftsVTWR0M)
 
 ---
 
